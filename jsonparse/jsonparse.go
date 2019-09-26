@@ -27,9 +27,12 @@ func ParseIt(storymap map[string]StoryChapterStruct) {
 }
 
 //OpenJSONFile the json file from filesystem
-func OpenJSONFile() {
-	filepath := "./gopher.json"
+func OpenJSONFile() map[string]StoryChapterStruct {
+	filepath := "/home/exotel/go/src/github.com/JohnGeorge47/storybuilder/jsonparse/gopher.json"
 	fileopen, err := os.Open(filepath)
+	if err != nil {
+		fmt.Println(err)
+	}
 	var jsonMap map[string]StoryChapterStruct
 	file, err := ioutil.ReadAll(fileopen)
 	if err != nil {
@@ -39,5 +42,5 @@ func OpenJSONFile() {
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println(jsonMap)
+	return jsonMap
 }
