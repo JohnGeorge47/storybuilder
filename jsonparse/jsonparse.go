@@ -27,11 +27,11 @@ func ParseIt(storymap map[string]StoryChapterStruct) {
 
 //OpenJSONFile the json file from filesystem
 func OpenJSONFile() {
-	filepath := "../gopher.json"
+	filepath := "./gopher.json"
 	var jsonMap map[string]StoryChapterStruct
 	file, err := ioutil.ReadFile(filepath)
 	if err != nil {
-		log.Fatal("there was an issue opening the file")
+		log.Fatal(err)
 	}
 	err = json.Unmarshal([]byte(file), &jsonMap)
 	if err != nil {
