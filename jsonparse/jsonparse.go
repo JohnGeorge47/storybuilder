@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"os"
 )
 
 //StoryChapterStruct is base for each story
@@ -28,8 +29,9 @@ func ParseIt(storymap map[string]StoryChapterStruct) {
 //OpenJSONFile the json file from filesystem
 func OpenJSONFile() {
 	filepath := "./gopher.json"
+	fileopen, err := os.Open(filepath)
 	var jsonMap map[string]StoryChapterStruct
-	file, err := ioutil.ReadFile(filepath)
+	file, err := ioutil.ReadAll(fileopen)
 	if err != nil {
 		log.Fatal(err)
 	}
