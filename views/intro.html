@@ -1,1 +1,23 @@
-<h1>{{.Title}}</h1>
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <style>
+                    body {background-color:teal; font-family:'Courier New', Courier, monospace}
+                    .thetitle{text-align: center}
+
+        </style>
+
+    </head>
+    <body>
+            <h1 class="thetitle">{{.Title}}</h1>
+            <p1>{{.Story}}</p1>
+            <h3>Well we have two choices now....</h3>
+            <ul>
+                {{range .Options}}
+                <a href="{{.Arc}}"><li>{{.Text}}</li></a>
+                {{end}}
+            </ul>
+    </body>
+       
+</html>
